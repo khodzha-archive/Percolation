@@ -15,6 +15,8 @@ public class Percolation {
         for (int i = 0; i < array.length; i++) {
             array[i] = -i;
         }
+        array[N*N] = N*N;
+        array[N*N + 1] = N*N + 1;
         sz = new int[N*N+2];
         for (int i = 0; i < sz.length; i++) {
             sz[i] = 1;
@@ -30,12 +32,14 @@ public class Percolation {
     public void open(int i, int j) {
         int index = convertToIndex(i, j);
         int c;
+        if (opened[index] == false) {
+            array[index] = index;
+            opened[index] = true;
+        }
         if (i == size)
         	union(index, size*size + 1);
         if (i == 1)
         	union(index, size*size);
-        if (opened[index] == false)
-            array[index] = index;
         if (i < size && isOpen(i+1, j)) {
             c = convertToIndex(i+1, j);
             union(index, c);
@@ -92,7 +96,6 @@ public class Percolation {
             array[q] = p;
             sz[p] += sz[q];
         }
-        System.out.println(array);
     }
     
     private boolean connected(int i, int j) {
