@@ -97,6 +97,8 @@ public class Percolation {
     }
 
     private boolean connected(int i, int j) {
+        if (!opened[i] || !opened[j])
+            return false;
         return root(i) == root(j);
     }
 
