@@ -7,7 +7,7 @@ public class PercolationStats {
     private double mean = 0;
 
     public PercolationStats(int N, int T) throws IllegalArgumentException {
-        if (T < 0 || N < 0)
+        if (T <= 0 || N <= 0)
             throw new IllegalArgumentException();
         gridSize = N;
         numberOfExperiments = T;
