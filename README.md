@@ -34,16 +34,14 @@ The fraction of sites that are opened when the system percolates provides an est
 For example, if sites are opened in a 20-by-20 lattice according to the snapshots below, then our estimate of the percolation threshold is 204/400 = 0.51 because the system percolates when the 204th site is opened.
 
 ![50](http://coursera.cs.princeton.edu/algs4/assignments/percolation-50.png)
-50 open sites
-
 ![100](http://coursera.cs.princeton.edu/algs4/assignments/percolation-100.png)
-100 open sites
-
 ![100](http://coursera.cs.princeton.edu/algs4/assignments/percolation-150.png)
-150 open sites
-
 ![100](http://coursera.cs.princeton.edu/algs4/assignments/percolation-204.png)
+50 open sites
+100 open sites
+150 open sites
 204 open sites
+
 By repeating this computation experiment T times and averaging the results, we obtain a more accurate estimate of the percolation threshold. Let xt be the fraction of open sites in computational experiment t. The sample mean μ provides an estimate of the percolation threshold; the sample standard deviation σ measures the sharpness of the threshold.
 
 
