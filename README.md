@@ -60,7 +60,7 @@ public class PercolationStats {
 The constructor should throw a java.lang.IllegalArgumentException if either N ≤ 0 or T ≤ 0.
 Also, include a main() method that takes two command-line arguments N and T, performs T independent computational experiments (discussed above) on an N-by-N grid, and prints out the mean, standard deviation, and the 95% confidence interval for the percolation threshold.
 
-% java PercolationStats 200 100
-mean                    = 0.5929934999999997
-stddev                  = 0.00876990421552567
-95% confidence interval = 0.5912745987737567, 0.5947124012262428
+% java PercolationStats 200 100  
+mean                    = 0.5929934999999997  
+stddev                  = 0.00876990421552567  
+95% confidence interval = 0.5912745987737567, 0.5947124012262428  
