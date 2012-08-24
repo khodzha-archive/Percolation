@@ -15,7 +15,7 @@ __The problem.__ In a famous scientific problem, researchers are interested in t
 When N is sufficiently large, there is a threshold value p* such that when p < p* a random N-by-N grid almost never percolates, and when p > p*, a random N-by-N grid almost always percolates. No mathematical solution for determining the percolation threshold p* has yet been derived. Your task is to write a computer program to estimate p*.
 
 __Percolation data type.__ To model a percolation system, create a data type Percolation with the following API:
-
+```java
 public class Percolation {
    public Percolation(int N)              // create N-by-N grid, with all sites blocked
    public void open(int i, int j)         // open site (row i, column j) if it is not already
@@ -23,6 +23,7 @@ public class Percolation {
    public boolean isFull(int i, int j)    // is site (row i, column j) full?
    public boolean percolates()            // does the system percolate?
 }
+```
 By convention, the indices i and j are integers between 1 and N, where (1, 1) is the upper-left site: Throw a java.lang.IndexOutOfBoundsException if either i or j is outside this range. The constructor should take time proportional to N^2; all methods should take constant time plus a constant number of calls to the union-find methods union(), find(), connected(), and count().
 Monte Carlo simulation. To estimate the percolation threshold, consider the following computational experiment:
 
@@ -47,13 +48,14 @@ Assuming T is sufficiently large (say, at least 30), the following provides a 95
 ![confidence](http://coursera.cs.princeton.edu/algs4/assignments/percolation-confidence.png)
 
 To perform a series of computational experiments, create a data type PercolationStats with the following API.
-
+```java
 public class PercolationStats {
    public PercolationStats(int N, int T)    // perform T independent computational experiments on an N-by-N grid
    public double mean()                     // sample mean of percolation threshold
    public double stddev()                   // sample standard deviation of percolation threshold
    public static void main(String[] args)   // test client, described below
 }
+```
 The constructor should throw a java.lang.IllegalArgumentException if either N ≤ 0 or T ≤ 0.
 Also, include a main() method that takes two command-line arguments N and T, performs T independent computational experiments (discussed above) on an N-by-N grid, and prints out the mean, standard deviation, and the 95% confidence interval for the percolation threshold.
 
