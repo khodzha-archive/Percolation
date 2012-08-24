@@ -26,11 +26,11 @@ public class Percolation {
 By convention, the indices i and j are integers between 1 and N, where (1, 1) is the upper-left site: Throw a java.lang.IndexOutOfBoundsException if either i or j is outside this range. The constructor should take time proportional to N^2; all methods should take constant time plus a constant number of calls to the union-find methods union(), find(), connected(), and count().
 Monte Carlo simulation. To estimate the percolation threshold, consider the following computational experiment:
 
-Initialize all sites to be blocked.
-Repeat the following until the system percolates:
-Choose a site (row i, column j) uniformly at random among all blocked sites.
-Open the site (row i, column j).
-The fraction of sites that are opened when the system percolates provides an estimate of the percolation threshold.
++ Initialize all sites to be blocked.
++ Repeat the following until the system percolates:
++ Choose a site (row i, column j) uniformly at random among all blocked sites.
++ Open the site (row i, column j).
++ The fraction of sites that are opened when the system percolates provides an estimate of the percolation threshold.
 For example, if sites are opened in a 20-by-20 lattice according to the snapshots below, then our estimate of the percolation threshold is 204/400 = 0.51 because the system percolates when the 204th site is opened.
 
 ![50](http://coursera.cs.princeton.edu/algs4/assignments/percolation-50.png)
@@ -40,8 +40,11 @@ For example, if sites are opened in a 20-by-20 lattice according to the snapshot
 
 By repeating this computation experiment T times and averaging the results, we obtain a more accurate estimate of the percolation threshold. Let xt be the fraction of open sites in computational experiment t. The sample mean μ provides an estimate of the percolation threshold; the sample standard deviation σ measures the sharpness of the threshold.
 
+![stats](http://coursera.cs.princeton.edu/algs4/assignments/percolation-stats.png)
 
 Assuming T is sufficiently large (say, at least 30), the following provides a 95% confidence interval for the percolation threshold:
+
+![confidence](http://coursera.cs.princeton.edu/algs4/assignments/percolation-confidence.png)
 
 To perform a series of computational experiments, create a data type PercolationStats with the following API.
 
