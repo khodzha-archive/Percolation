@@ -24,7 +24,7 @@ public class Percolation {
    public boolean percolates()            // does the system percolate?
 }
 ```
-By convention, the indices i and j are integers between 1 and N, where (1, 1) is the upper-left site: Throw a java.lang.IndexOutOfBoundsException if either i or j is outside this range. The constructor should take time proportional to N^2; all methods should take constant time plus a constant number of calls to the union-find methods union(), find(), connected(), and count().
+By convention, the indices i and j are integers between 1 and N, where (1, 1) is the upper-left site: Throw a java.lang.IndexOutOfBoundsException if either i or j is outside this range.
 
 __Monte Carlo simulation.__ To estimate the percolation threshold, consider the following computational experiment:
 
