@@ -5,7 +5,8 @@ public class Percolation {
     private int[] array;
     private boolean[] opened;
     private int[] sz;
-
+    private boolean percolates = false;
+    
     public Percolation(int N) {
         size = N;
         // N*N + 1 - beginning of percolation system
@@ -35,8 +36,6 @@ public class Percolation {
             array[index] = index;
             opened[index] = true;
         }
-        if (i == size)
-            union(index, size * size + 1);
         if (i == 1)
             union(index, size * size);
         if (i < size && isOpen(i + 1, j)) {
@@ -68,7 +67,15 @@ public class Percolation {
     }
 
     public boolean percolates() {
-        return connected(size * size, size * size + 1);
+        if (!percolates) {
+            for (int j = 1; j <= size; j++) {
+                if(connected(convertToIndex(size, j), size*size)) {
+                    percolates = true;
+                    break;
+                }
+            }
+        }
+        return percolates;
     }
 
     private int convertToIndex(int i, int j) throws IndexOutOfBoundsException {
