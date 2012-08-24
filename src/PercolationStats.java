@@ -16,6 +16,8 @@ public class PercolationStats {
         int q = 0;
         double counter = 0;
         for (int i = 0; i < T; i++) {
+            if ((i * 100 / T) % 10 == 0)
+                System.out.println(i * 100/ T + "% completed");
             counter = 0;
             Percolation obj = new Percolation(gridSize);
             while (!obj.percolates()) {
