@@ -12,19 +12,15 @@ public class Percolation {
         // N*N + 1 - beginning of percolation system
         // N*N + 2 - end of percolation system
         array = new int[N * N + 2];
+        opened = new boolean[N * N + 2];
+        sz = new int[N * N + 2];
         for (int i = 0; i < array.length; i++) {
             array[i] = -i;
+            opened[i] = false;
+            sz[i] = 1;
         }
         array[N * N] = N * N;
         array[N * N + 1] = N * N + 1;
-        sz = new int[N * N + 2];
-        for (int i = 0; i < sz.length; i++) {
-            sz[i] = 1;
-        }
-        opened = new boolean[N * N + 2];
-        for (int i = 0; i < opened.length; i++) {
-            opened[i] = false;
-        }
         opened[N * N] = true;
         opened[N * N + 1] = true;
     }
@@ -94,6 +90,7 @@ public class Percolation {
     private void union(int i, int j) {
         int p = root(i);
         int q = root(j);
+        if (p == q) return;
         if (sz[p] < sz[j]) {
             array[p] = q;
             sz[q] += sz[p];
@@ -104,13 +101,6 @@ public class Percolation {
     }
 
     private boolean connected(int i, int j) {
-        if (!opened[i] || !opened[j])
-            return false;
-        return root(i) == root(j);
-    }
-
-    public static void main(String[] args) {
-        Percolation q = new Percolation(5);
-        System.out.println(q.percolates());
+        return (!opened[i] || !opened[j]) ? false : root(i) == root(j);
     }
 }
